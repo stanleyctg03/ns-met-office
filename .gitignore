@@ -3,3 +3,5 @@
 
 #IDE's project files
 .idea
+
+node_modules
