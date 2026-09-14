@@ -1,21 +1,13 @@
 {
-  "name": "ns-met-office",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stanleyctg03/ns-met-office.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/stanleyctg03/ns-met-office/issues"
-  },
-  "homepage": "https://github.com/stanleyctg03/ns-met-office#readme"
+"name": "ns-metoffice",
+"version": "1.0.0",
+"scripts": {
+  "start": "node --env-file=.env src/index.ts",
+  "typecheck": "tsc"
+},
+"type": "module",
+"devDependencies": {
+  "@types/node": "^26.5.0",
+  "typescript": "^7.0.2"
+}
 }
