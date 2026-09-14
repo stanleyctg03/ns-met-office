@@ -18,14 +18,32 @@ async function main() {
     rl.close();
 
     const data = await callWeatherForecastAPI(latitude,longitude);
+    if (!data) {
+        console.error("No data found");
+        return;
+    }
     const nextThreeHours = getNextThreeHours();
     const filteredData = getDataForNextThreeHours(data, nextThreeHours);
 
     if (!filteredData) {
         console.error("No data for the next time");
     }
-    console.log(filteredData);
+
+    let willRain = false;
+    for (let i = 0; i < filteredData.length; i++) {
+        let temperature = getTemperature(filteredData[i]);
+        console.log(`Temperature for Next ${i} Hour: ${temperature.toFixed(2)}°C`);
+        if (isRaining(filteredData[i])) {
+            willRain = true;
+        }
+    }
+    if (willRain) {
+        console.log(`You will need an umbrella!`);
+    } else {
+        console.log(`You wont need an umbrella!`);
+    }
 }
+
 
 function askQuestion(question: String): Promise<String> {
     return new Promise((resolve) => {
@@ -33,9 +51,9 @@ function askQuestion(question: String): Promise<String> {
     });
 }
 
-async function callWeatherForecastAPI(latitude: number, longitude: number): Promise<Response> {
+async function callWeatherForecastAPI(latitude: number, longitude: number) {
     try {
-        const response = await fetch(`https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/hourly?latitude=51.5539&longitude=-0.1446`, {
+        const response = await fetch(`https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/hourly?latitude=${latitude}&longitude=${longitude}`, {
             headers: {
                 "apikey": apiKey,
             }
@@ -49,7 +67,7 @@ async function callWeatherForecastAPI(latitude: number, longitude: number): Prom
     } catch (error: any) {
         console.error(error)
     } finally {
-        console.log("Request complete")
+        // console.log("Request complete")
     }
 }
 
@@ -82,7 +100,14 @@ function getNextThreeHours(): string[] {
        const future = new Date(nextHour.getTime() + offset * 60 * 60 * 1000);
        return formatDateTime(future);
     });
+}
 
+function getTemperature(timeSeriesData) {
+    return timeSeriesData.feelsLikeTemperature;
+}
+
+function isRaining(timeSeriesData) {
+    return timeSeriesData.precipitation > 0 ? true : false;
 }
 
 main();
