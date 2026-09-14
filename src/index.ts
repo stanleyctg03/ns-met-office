@@ -8,7 +8,7 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-async function main() {
+async function index() {
     const latitude: number = Number(await askQuestion("Latitude: "));
     const longitude: number = Number(await askQuestion("Longitude: "));
 
@@ -110,4 +110,4 @@ function isRaining(timeSeriesData) {
     return timeSeriesData.precipitation > 0 ? true : false;
 }
 
-main();
+index();
