@@ -1,5 +1,5 @@
 # ns-met-office
-This project allows user to enter longitude and latitude to determine the temperature for the next three hours via the terminal.
+This project allows user to enter longitude and latitude to determine the temperature and weather type for the next three hours via the terminal.
 
 ## Project Structure
 ```
@@ -11,6 +11,7 @@ project/
 │   ├── time-utils.ts
 │   └── weather-utils.ts
 │   └── types.ts
+│   └── constants.ts
 ├── .env
 ├── .gitignore
 ├── package.json
