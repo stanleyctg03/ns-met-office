@@ -1,5 +1,3 @@
-import * as process from "node:process";
-import readline from "readline";
 import { getDataWithLatitudeAndLongitude, getDataForNextThreeHours } from "./weather-api.ts";
 import { getTemperature, isRaining } from "./weather-utils.ts";
 import { getNextThreeHours } from "./time-utils.ts";
@@ -10,15 +8,15 @@ async function main() {
     try {
         const latitude: number = Number(await askQuestion("Latitude: "));
         const longitude: number = Number(await askQuestion("Longitude: "));
-        const data = await getDataWithLatitudeAndLongitude(latitude,longitude);
+        const fullTimeSeriesData = await getDataWithLatitudeAndLongitude(latitude, longitude);
         const nextThreeHours = getNextThreeHours();
-        const filteredData = getDataForNextThreeHours(data, nextThreeHours);
+        const filteredTimeSeriesData = getDataForNextThreeHours(fullTimeSeriesData, nextThreeHours);
 
         let willRain = false;
-        for (let i = 0; i < filteredData.length; i++) {
-            let temperature = getTemperature(filteredData[i]);
+        for (let i = 0; i < filteredTimeSeriesData.length; i++) {
+            let temperature = getTemperature(filteredTimeSeriesData[i]);
             console.log(`Temperature for Next ${i + 1} Hour: ${temperature.toFixed(2)}°C`);
-            if (isRaining(filteredData[i])) {
+            if (isRaining(filteredTimeSeriesData[i])) {
                 willRain = true;
             }
         }
