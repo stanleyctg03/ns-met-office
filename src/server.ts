@@ -1,7 +1,9 @@
 import express from 'express';
 import { getForecastForPostCode } from "./forecast.ts";
+import cors from 'cors';
 
 const app = express();
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.get("/", async (req, res) => {
     console.log('Ready to accept request');
