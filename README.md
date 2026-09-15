@@ -4,6 +4,13 @@ This project allows user to enter postcode to determine the temperature and weat
 ## Project Structure
 ```
 project/
+├── metoffice/
+│   ├── src/
+    │   ├── Api.ts
+    │   ├── App.css
+    │   ├── App.tsx
+    │   ├── index.css
+    │   └── main.tsx
 ├── src/
 │   ├── index.ts
 │   ├── input.ts
@@ -12,6 +19,7 @@ project/
 │   └── weather-utils.ts
 │   └── types.ts
 │   └── constants.ts
+│   └── server.ts
 ├── .env
 ├── .env.example
 ├── .gitignore
@@ -31,4 +39,4 @@ Then from root directory of this repository, run ```npm install``` to install de
 
 From root, power the back end with ```npm start```, server is listening on port 8080.
 
-From metoffice/ run ```npm run dev```, frontend is now running on pork 5173.
+From metoffice/ run ```npm run dev```, frontend is now running on port 5173.
