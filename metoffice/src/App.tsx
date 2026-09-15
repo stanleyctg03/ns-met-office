@@ -61,6 +61,9 @@ function App(): React.ReactElement {
                 {tableData.result.willRain && (
                     <p className="rain-warning">☔ You'll need an umbrella</p>
                 )}
+                {!tableData.result.willRain && (
+                    <p className="rain-warning">No need an umbrella</p>
+                )}
               </div>
           )}
         </div>
