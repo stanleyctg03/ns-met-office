@@ -1,5 +1,5 @@
 # ns-met-office
-This project allows user to enter postcode to determine the temperature and weather type for the next three hours via the terminal.
+This project allows user to enter postcode to determine the temperature and weather type for the next three hours.
 
 ## Project Structure
 ```
