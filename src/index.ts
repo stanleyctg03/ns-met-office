@@ -2,15 +2,19 @@ import { getDataWithLatitudeAndLongitude, getDataForNextThreeHours } from "./wea
 import { getTemperature, getWeatherCode, isRaining } from "./weather-utils.ts";
 import { getNextThreeHours } from "./time-utils.ts";
 import { askQuestion, closeReadLine } from "./input.ts";
+import { callPostcodeApi, getLatitudeAndLongitude } from "./postcode-api.ts";
 
 import {weatherCodeMap} from "./constants.ts";
 
 
 async function main() {
     try {
-        const latitude: number = Number(await askQuestion("Latitude: "));
-        const longitude: number = Number(await askQuestion("Longitude: "));
-        const fullTimeSeriesData = await getDataWithLatitudeAndLongitude(latitude, longitude);
+        const postCode: String = await askQuestion("PostCode: ");
+
+        const postCodeApiData = await callPostcodeApi(postCode);
+        const latitudeAndLongitude = await getLatitudeAndLongitude(postCodeApiData);
+
+        const fullTimeSeriesData = await getDataWithLatitudeAndLongitude(latitudeAndLongitude.latitude, latitudeAndLongitude.longitude);
         const nextThreeHours = getNextThreeHours();
         const filteredTimeSeriesData = getDataForNextThreeHours(fullTimeSeriesData, nextThreeHours);
 
