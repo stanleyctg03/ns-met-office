@@ -1,4 +1,4 @@
-import type {TimeSeries} from "./types.ts";
+import type {TimeSeries} from "../types.ts";
 
 export function getTemperature(timeSeriesData: TimeSeries) {
     return timeSeriesData.feelsLikeTemperature;

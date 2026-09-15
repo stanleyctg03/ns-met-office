@@ -7,7 +7,7 @@ project/
 ├── src/
 │   ├── index.ts
 │   ├── input.ts
-│   ├── weather-api.ts
+│   ├── weather-Api.ts
 │   ├── time-utils.ts
 │   └── weather-utils.ts
 │   └── types.ts
