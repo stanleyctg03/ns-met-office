@@ -1,3 +1,3 @@
-export { getDataWithLatitudeAndLongitude, getDataForNextThreeHours } from "./weather-api.ts";
-export { callPostcodeApi, getLatitudeAndLongitude } from "./postcode-api.ts";
-export { getForecastForPostCode }from "./forecast.ts"
+export { getDataWithLatitudeAndLongitude, getDataForNextThreeHours } from "./api/weather-api.ts";
+export { callPostcodeApi, getLatitudeAndLongitude } from "./api/postcode-api.ts";
+export { getForecastForPostCode } from "./forecast.ts";

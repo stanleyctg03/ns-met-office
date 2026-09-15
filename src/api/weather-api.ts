@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import type { TimeSeries } from "./types.ts";
+import type { TimeSeries } from "../types.ts";
 
 export async function getDataWithLatitudeAndLongitude(latitude: number, longitude: number): Promise<TimeSeries[]> {
     const apiKey = process.env.METOFFICE_API_KEY;
