@@ -6,7 +6,7 @@ import { callPostcodeApi, getLatitudeAndLongitude } from "./postcode-api.ts";
 import {weatherCodeMap} from "./constants.ts";
 
 
-export async function getMetaDataForNextThreeHours(postCode: String) {
+export async function getForecastForPostCode(postCode: String) {
     try {
         const result = {
             temperature: [],
