@@ -27,4 +27,8 @@ To run, clone this repository via ```git clone```.
 First, get api key from [Met Office DataHub](https://datahub.metoffice.gov.uk/) and create a .env file (refer to .env.example).
 
 
-Then from root directory of this repository, run ```npm install``` and ```node src/index.ts```. Simply enter a valid latitude and longitude to get a response.
+Then from root directory of this repository, run ```npm install``` to install dependencies needed for the program
+
+From root, power the back end with ```npm start```, server is listening on port 8080.
+
+From metoffice/ run ```npm run dev```, frontend is now running on pork 5173.
