@@ -1,6 +1,6 @@
 import { getDataWithLatitudeAndLongitude, getDataForNextThreeHours } from "./api/weather-api.ts";
 import { getTemperature, getWeatherCode, isRaining } from "./utils/weather-utils.ts";
-import { getNextThreeHours } from "./utils/time-utils.ts";
+import { getNextThreeHours, formatTimeStamp } from "./utils/time-utils.ts";
 import { closeReadLine } from "./utils/input.ts";
 import { callPostcodeApi, getLatitudeAndLongitude } from "./api/postcode-api.ts";
 import {weatherCodeMap} from "./constants.ts";
@@ -9,6 +9,7 @@ import {weatherCodeMap} from "./constants.ts";
 export async function getForecastForPostCode(postCode: String) {
     try {
         const result = {
+            timestamp: [],
             temperature: [],
             weatherType: [],
             willRain: false,
@@ -23,6 +24,7 @@ export async function getForecastForPostCode(postCode: String) {
         for (let i = 0; i < filteredTimeSeriesData.length; i++) {
             let timeSeriesEntry = filteredTimeSeriesData[i];
 
+            result.timestamp.push(formatTimeStamp(timeSeriesEntry.time));
             result.temperature.push(`${getTemperature(timeSeriesEntry).toFixed(2)}°C`);
             result.weatherType.push(weatherCodeMap[getWeatherCode(timeSeriesEntry)]);
 

@@ -20,3 +20,7 @@ export function getNextThreeHours(): string[] {
         return formatDateTime(future);
     });
 }
+
+export function formatTimeStamp(timestamp: string): string {
+    return timestamp.replace('T', ' ').replace('Z', '');
+}

@@ -9,5 +9,5 @@ export function getWeatherCode(timeSeriesData: TimeSeries) {
 }
 
 export function isRaining(timeSeriesData: TimeSeries) {
-    return timeSeriesData.precipitation > 0 ? true : false;
+    return timeSeriesData.significantWeatherCode > 8 ? true : false;
 }

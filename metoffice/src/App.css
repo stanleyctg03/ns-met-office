@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 2.5rem 1rem;
+}
+
+.app-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* Form */
+
+.postcode-form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.postcode-form input[type="text"] {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.postcode-form input[type="text"]:focus {
+    border-color: #3b82f6;
+}
+
+.postcode-form button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.postcode-form button:hover {
+    background-color: #2563eb;
+}
+
+/* Forecast table */
+
+.forecast-section {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.forecast-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.forecast-table th {
+    text-align: left;
+    padding: 0.5rem 0.6rem;
+    color: #888;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+
+.forecast-table td {
+    padding: 0.7rem 0.6rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.forecast-table tr:last-child td {
+    border-bottom: none;
+}
+
+.temp-cell {
+    font-weight: 700;
+    color: #111;
+}
+
+.rain-warning {
+    margin: 1.25rem 0 0;
+    padding: 0.7rem 1rem;
+    background-color: #eff6ff;
+    border-left: 3px solid #3b82f6;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #1e40af;
+}
+
+.postcode-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
